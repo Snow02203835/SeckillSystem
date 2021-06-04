@@ -1,0 +1,36 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8082
+  datasource:
+    url: jdbc:mysql://localhost:3306/middle?serverTimezone=GMT%2B8
+    username: middleWareAdmin
+    password: 123456
+    druid:
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123456
+        enabled: true
+        url-pattern: /druid/*
+
+  redis:
+    # Redis服务器地址
+    host: localhost
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码
+    password: 123456
+  # 配置rocketmq
+rocketmq:
+  # 指定name server地址
+  name-server: localhost:9876
+  producer:
+    #生产者group名称
+    group: producer_group
+    #一次发送多少数量消息
+    max-message-size: 4096
+    #发送消息超时时间,默认3000
+    send-message-timeout: 3000
+    #发送消息失败重试次数，默认2
+    retry-times-when-send-async-failed: 2
